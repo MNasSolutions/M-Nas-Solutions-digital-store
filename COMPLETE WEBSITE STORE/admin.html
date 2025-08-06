@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - M Nas Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/banner.png" alt="M Nas Solutions">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Back to Shop</a></li>
+                    <li><a href="#orders">Orders</a></li>
+                    <li><a href="#products">Products</a></li>
+                </ul>
+            </nav>
+            <div class="auth-links"></div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            
+            <section id="orders" class="admin-section">
+                <h2>Recent Orders</h2>
+                <div class="order-filters">
+                    <select id="order-filter" onchange="filterOrders()">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                    </select>
+                </div>
+                <div id="orders-list" class="orders-list">
+                    <!-- Orders loaded via JavaScript -->
+                </div>
+            </section>
+            
+            <section id="products" class="admin-section">
+                <h2>Product Management</h2>
+                
+                <div class="form-group">
+                    <h3>Add New Product</h3>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="product-name">Product Name</label>
+                            <input type="text" id="product-name" placeholder="12 Hour Rechargeable Light">
+                        </div>
+                        <div class="form-col">
+                            <label for="product-price">Price (in kobo)</label>
+                            <input type="number" id="product-price" placeholder="15000">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="product-image">Image URL</label>
+                            <input type="text" id="product-image" placeholder="assets/images/product1.jpg">
+                        </div>
+                        <div class="form-col">
+                            <label for="product-duration">Duration</label>
+                            <input type="text" id="product-duration" placeholder="12 hours">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="product-input-voltage">Input Voltage</label>
+                            <input type="text" id="product-input-voltage" placeholder="5.1V">
+                        </div>
+                        <div class="form-col">
+                            <label for="product-battery-voltage">Battery Voltage</label>
+                            <input type="text" id="product-battery-voltage" placeholder="3.7V">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="product-charging-time">Charging Time</label>
+                            <input type="text" id="product-charging-time" placeholder="3 hours">
+                        </div>
+                    </div>
+
+                    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - M Nas Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .admin-only {
+            display: none;
+        }
+        body.admin-verified .admin-only {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/banner.png" alt="M Nas Solutions">
+                <span>Admin Panel</span>
+            </div>
+            <div class="auth-links"></div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <div class="admin-notice">
+                <i class="fas fa-lock"></i>
+                <h2>Restricted Access</h2>
+                <p>Loading admin dashboard...</p>
+            </div>
+            
+            <div class="admin-content admin-only">
+                <!-- All admin content here -->
+                <section id="orders">
+                    <h2><i class="fas fa-clipboard-list"></i> Recent Orders</h2>
+                    <div id="orders-list"></div>
+                </section>
+                
+                <section id="products">
+                    <h2><i class="fas fa-boxes"></i> Product Management</h2>
+                    <!-- Product management UI -->
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/admin.js"></script>
+    <script>
+        // Show admin content only after verification
+        function verifyAdmin() {
+            document.body.classList.add('admin-verified');
+            document.querySelector('.admin-notice').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+                    
+                    <label for="product-description">Description</label>
+                    <textarea id="product-description" placeholder="For Home and Business Use"></textarea>
+                    
+                    <button onclick="addProduct()" class="btn">Add Product</button>
+                </div>
+                
+                <h3>Current Products</h3>
+                <div class="product-grid" id="admin-product-grid">
+                    <!-- Products loaded via JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products Catalog PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <button id="downloadCatalog">Download Products Catalog (PDF)</button>
+
+    <script>
+        // Sample Products Array (Make sure your real data is here)
+        const products = [
+            { name: '12 Hour Rechargeable Light', price: 15000, image: 'product1.jpg', description: 'Long-lasting illumination' },
+            { name: '8 Hour Rechargeable Light', price: 12000, image: 'product2.jpg', description: 'Compact lighting solution' },
+            // ... up to product22.jpg
+        ];
+
+        // Paste your Base64 images here
+        const productImagesBase64 = {
+            'product1.jpg': 'data:image/jpeg;base64,...',  // <-- Paste base64 here
+            'product2.jpg': 'data:image/jpeg;base64,...',
+            // up to product22.jpg
+        };
+
+        document.getElementById('downloadCatalog').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            let y = 20;
+            doc.setFontSize(18);
+            doc.text('Products Catalog', 105, y, null, null, 'center');
+            y += 10;
+            doc.setFontSize(12);
+
+            products.forEach((product, index) => {
+                doc.text(`Name: ${product.name}`, 20, y); y += 7;
+                doc.text(`Price: ₦${product.price.toLocaleString()}`, 20, y); y += 7;
+                if (product.description) {
+                    doc.text(`Description: ${product.description}`, 20, y); y += 7;
+                }
+
+                const imgData = productImagesBase64[product.image];
+                if (imgData) {
+                    doc.addImage(imgData, 'JPEG', 20, y, 40, 30);  // Image placement
+                }
+                y += 35;
+
+                if (y > 270) {  // New Page if space exceeds
+                    doc.addPage();
+                    y = 20;
+                }
+            });
+
+            doc.save('Products-Catalog.pdf');
+        });
+    </script>
+</body>
+</html>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/admin.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Nas Solutions - Premium Rechargeable Lights</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/Images/product 1.jpg" alt="M Nas Solutions">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="auth-links"></div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+                <div class="cart-actions">
+        <i class="#"></i>CARD
+</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>INNOVATING SOLUTIONS FOR NOW AND FUTURE</h1>
+                <p>Premium rechargeable lighting solutions for home and business</p>
+                <a href="#products" class="btn">Shop Now</a>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <div class="container">
+                <h2>Our Products</h2>
+                <div class="product-grid" id="product-grid">
+                    <!-- Products loaded via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About M Nas Solutions</h2>
+                <p>We specialize in high-quality, durable rechargeable lighting solutions for both home and business use. Our products are designed with innovation and reliability in mind, proudly made in Nigeria.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><i class="fas fa-envelope"></i> mnassolutions007@gmail.com</p>
+                <p><i class="fas fa-envelope"></i> mnassolutions@gmail.com</p>
+                <p><i class="fas fa-envelope"></i> send2muhammadsaadahmad@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +234 (0)706 903 6157</p>
+                <p><i class="fas fa-map-marker-alt"></i> No 890 Hotoro G.R.A</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/2347069036157"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone Number" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">
+                    <i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+                <!-- Cart Overlay -->
+<div class="cart-overlay" id="cart-overlay">
+    <div class="cart-container">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="close-cart" onclick="closeCart()">&times;</button>
+        </div>
+        
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will appear here -->
+        </div>
+        
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-amount">₦0.00</span>
+            </div>
+            
+            <button class="whatsapp-checkout-btn" onclick="checkoutWithWhatsApp()">
+                <i class="checkout.html"></i> Complete Order via WhatsApp
+            </button>
+            
+            <p class="checkout-notice">
+                You'll be redirected to WhatsApp to confirm your order with our team.
+            </p>
+        </div>
+    </div>
+</div>
+            </form>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 M Nas Solutions. All rights reserved. | Made in Nigeria</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="assets/js/firebase-config.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+        
+        // Contact form handling
+        document.querySelector('.contact-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
